@@ -23,12 +23,22 @@ function updateClearButton() {
 }
 
 document.querySelector(".ac").onclick = clearAll;
-
 document.querySelector(".buttons").onclick = (event) => {
   if (!event.target.classList.contains("btn")) return;
 
   if (event.target.classList.contains("ac")) {
     clearAll();
+    return;
+  }
+
+  if (event.target.classList.contains("plus-minus")) {
+    if (sign === "") {
+      a = Number(a) * -1 + "";
+      out.textContent = a;
+    } else {
+      b = Number(b) * -1 + "";
+      out.textContent = b;
+    }
     return;
   }
 
@@ -50,7 +60,6 @@ document.querySelector(".buttons").onclick = (event) => {
       out.textContent = b;
     }
     return;
-    console.log(a, b, sign);
   }
 
   if (action.includes(key)) {
@@ -58,7 +67,17 @@ document.querySelector(".buttons").onclick = (event) => {
     out.textContent = sign;
     return;
   }
-
+  if (key === "%") {
+    if (b === "") {
+      a = parseFloat(a) / 100;
+      out.textContent = a;
+    } else {
+      b = parseFloat(b) / 100;
+      out.textContent = b;
+    }
+    return;
+  }
+  
   if (key === "=") {
     if (b === "") b = a;
     switch (sign) {
