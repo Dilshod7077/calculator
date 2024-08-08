@@ -74,7 +74,7 @@ body {
   background: linear-gradient(#293f50, #648880);
 }
 .calc {
-  margin: 0 auto;
+  margin: 0px auto;
   width: 300px;
   height: 500px;
   border-radius: 20px;
